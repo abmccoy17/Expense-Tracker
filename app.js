@@ -4,7 +4,7 @@ const expenseAmount = document.querySelector('#expenseAmount');
 const tableBody = document.querySelector('#tableBody');
 const addExpenseBtn = document.querySelector('#addExpenseBtn');
 const exampleRow = document.querySelector('#exampleRow');
-const deleteBtn = document.createElement("button");
+
 
 addExpenseBtn.addEventListener('click', myFunction);
 
@@ -15,6 +15,7 @@ function myFunction() {
     
     const row = tableBody.insertRow(1);
 
+    const deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("id", "deleteBtn");
     deleteBtn.setAttribute("class", "button is-danger");
     deleteBtn.innerText = "x";
