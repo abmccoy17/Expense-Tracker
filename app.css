@@ -1,0 +1,52 @@
+table, th, td {
+    border: 1px solid grey;
+    text-align: center;
+}
+
+.card-header-title {
+    text-align: center;
+}
+
+#expenseName {
+    display: inline;
+    width: 90%;
+}
+
+#expenseDate {
+    display: inline;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#expenseAmount {
+    display: inline;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#addExpenseBtn {
+    margin-left: 0px;
+}
+
+#nameth {
+    width: 250px;
+}
+
+#dateth {
+    width: 175px;
+}
+
+#amountth {
+    width: 175px;
+}
+
+table {
+    width: 500px;
+    margin-top: 20px;
+}
+
+#deleteBtnHeader {
+    width: 40px;
+}
