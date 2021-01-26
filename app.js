@@ -5,21 +5,36 @@ const tableBody = document.querySelector('#tableBody');
 const addExpenseBtn = document.querySelector('#addExpenseBtn');
 const exampleRow = document.querySelector('#exampleRow');
 
+let expenseTotal = 0;
+
+let expenseTotalDisplay = document.querySelector("#expenseTotal");
+const row = document.createElement('row');
 
 addExpenseBtn.addEventListener('click', myFunction);
 
-let expenseTotal = 0;
-let expenseTotalDisplay = document.querySelector("#expenseTotal");
 
-function myFunction() {
-    
-    const row = tableBody.insertRow(1);
-
+function createTable() {
     const deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("id", "deleteBtn");
     deleteBtn.setAttribute("class", "button is-danger");
     deleteBtn.innerText = "x";
+    const row = tableBody.insertRow(1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    cell1.innerHTML = `${expenseName.value}`;
+    cell2.innerHTML = `${expenseDate.value}`;
+    cell3.innerHTML = `${expenseAmount.value}`;
+    cell4.append(deleteBtn);
+    deleteBtn.addEventListener('click', () => {
+        row.remove();
+        expenseTotal -= parseInt(cell3.innerHTML);
+        expenseTotalDisplay.innerText = expenseTotal;
+    })
+}
 
+function myFunction() {
     if (expenseName.value === '') {
         alert('Please fill out the name of the expense');
     } else if (expenseDate.value === '') {
@@ -27,20 +42,8 @@ function myFunction() {
     } else if (expenseAmount.value === '') {
         alert('Please enter the dollar amount of the expense');
     } else {
-        const cell1 = row.insertCell(0);
-        const cell2 = row.insertCell(1);
-        const cell3 = row.insertCell(2);
-        const cell4 = row.insertCell(3);
-        cell1.innerHTML = `${expenseName.value}`;
-        cell2.innerHTML = `${expenseDate.value}`;
-        cell3.innerHTML = `$${expenseAmount.value}`;
-        cell4.append(deleteBtn);
-    };
-
-    deleteBtn.addEventListener("click", function () {
-        row.remove();
-        expenseTotal -= parseInt(expenseAmount.value);
-    });
+        createTable();
+    }
 
     expenseTotal += parseInt(expenseAmount.value);
     expenseTotalDisplay.innerText = expenseTotal;
@@ -48,8 +51,9 @@ function myFunction() {
     expenseName.value = '';
     expenseDate.value = '';
     expenseAmount.value = '';
+    
+    console.log(expenseTotal)
 };
-
  
 
 
