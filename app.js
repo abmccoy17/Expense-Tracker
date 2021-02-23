@@ -29,7 +29,8 @@ function createTable() {
     cell4.append(deleteBtn);
     deleteBtn.addEventListener('click', () => {
         row.remove();
-        expenseTotal -= parseInt(cell3.innerHTML);
+        let addedAmount = parseInt(cell3.innerHTML);
+        expenseTotal -= addedAmount;
         expenseTotalDisplay.innerText = expenseTotal;
     })
 }
@@ -51,8 +52,6 @@ function myFunction() {
     expenseName.value = '';
     expenseDate.value = '';
     expenseAmount.value = '';
-    
-    console.log(expenseTotal)
 };
  
 
