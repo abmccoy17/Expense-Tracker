@@ -33,21 +33,37 @@ function createTable() {
         expenseTotal -= addedAmount;
         expenseTotalDisplay.innerText = expenseTotal;
     })
+
+    let addedAmount = parseInt(expenseAmount.value);
+    expenseTotal += addedAmount;
+    expenseTotalDisplay.innerText = expenseTotal;
 }
 
 function myFunction() {
     if (expenseName.value === '') {
-        alert('Please fill out the name of the expense');
+        const nameErrModal = document.querySelector("#nameErrorModal");
+        nameErrModal.classList.add('is-active');
+        const nameModalDelete = document.querySelector('#nameModalDelete');
+        nameModalDelete.addEventListener('click', () => {
+        nameErrModal.classList.remove('is-active');
+        })
     } else if (expenseDate.value === '') {
-        alert('Please enter the date of the expense');
+        const dateErrModal = document.querySelector('#dateErrorModal')
+        dateErrModal.classList.add("is-active");
+        const dateModalDelete = document.querySelector("#dateModalDelete");
+        dateModalDelete.addEventListener("click", () => {
+          dateErrModal.classList.remove("is-active");
+        });
     } else if (expenseAmount.value === '') {
-        alert('Please enter the dollar amount of the expense');
+        const amountErrModal = document.querySelector("#amountErrorModal");
+        amountErrModal.classList.add("is-active");
+        const amountModalDelete = document.querySelector("#amountModalDelete");
+        amountModalDelete.addEventListener("click", () => {
+        amountErrModal.classList.remove("is-active");
+        });
     } else {
         createTable();
     }
-
-    expenseTotal += parseInt(expenseAmount.value);
-    expenseTotalDisplay.innerText = expenseTotal;
 
     expenseName.value = '';
     expenseDate.value = '';

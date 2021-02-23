@@ -25,15 +25,17 @@
                             <label for="expenseAmount">Amount: </label>
                             <input class="input is-rounded" type="number" id="expenseAmount" placeholder="Expense amount">
                             <button class="button is-primary" id="addExpenseBtn">Add Expense</button>
-                            <h2>Total expenses: $<span id="expenseTotal">0</span></h2>
-                            <table id="tableBody" class="table is-bordered is-hoverable">
-                                <tr>
-                                    <th id="nameth">Name</th>
-                                    <th id="dateth">Date</th>
-                                    <th id="amountth">Amount ($'s)</th>
-                                    <th id="deleteBtnHeader"></th>
-                                </tr>
-                            </table>
+                            <h2 id="totalExp">Total expenses: $<span id="expenseTotal">0</span></h2>
+                            <div class="columns is-mobile">
+                                <table id="tableBody" class="table is-bordered is-hoverable">
+                                    <tr>
+                                        <th id="nameth">Name</th>
+                                        <th id="dateth">Date</th>
+                                        <th id="amountth">Amount ($'s)</th>
+                                        <th id="deleteBtnHeader"></th>
+                                    </tr>
+                                </table>
+                            </div>
                             
                         </div>
                     </div>
@@ -41,6 +43,49 @@
             </div>
         </div>
     </section>
+    <div class="modal" role="dialog" id="nameErrorModal">
+        <div class="modal-background">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title has-text-centered ">Error</p>
+                    <button class="delete" id="nameModalDelete" aria-label="close" data-dismiss="modal"></button>
+                </header>
+                <section class="modal-card-body">
+                    <h1 class="title has-text-centered">No expense name!</h1>
+                    <p class="control has-text-centered">Please enter a name for the expense</p>
+                </section>
+            </div>
+        </div>
+    </div>
+     <div class="modal" role="dialog" id="dateErrorModal">
+        <div class="modal-background">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title has-text-centered">Error</p>
+                    <button class="delete" id="dateModalDelete" aria-label="close" data-dismiss="modal"></button>
+                </header>
+                <section class="modal-card-body">
+                    <h1 class="title has-text-centered">No expense date!</h1>
+                    <p class="control has-text-centered">Please enter a date for the expense</p>
+                </section>
+            </div>
+        </div>
+    </div>
+     <div class="modal" role="dialog" id="amountErrorModal">
+        <div class="modal-background">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title has-text-centered">Error</p>
+                    <button class="delete" id="amountModalDelete" aria-label="close" data-dismiss="modal"></button>
+                </header>
+                <section class="modal-card-body">
+                    <h1 class="title has-text-centered">No expense amount!</h1>
+                    <p class="control has-text-centered">Please enter an expense amount</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="btn"></button> -->
     <script src="app.js"></script>
 </body>
 </html>
